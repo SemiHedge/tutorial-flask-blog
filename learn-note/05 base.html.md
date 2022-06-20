@@ -13,6 +13,11 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <!-- navbar가 될 영역 -->
+    <a href="/home">Home</a>
+    <a href="/sign-in">Sign In</a>
+    <a href="/sign-up">Sign Up</a>
+
     {% block content %}
     
     {% endblock %}
@@ -31,20 +36,20 @@
 {% endblock %}
 ```
 
-### register.html
+### sign_up.html
 ```html
 {% extends "base.html" %} 
-{% block title %}Register{% endblock %} 
+{% block title %}Sign Up{% endblock %} 
 
 {% block content%}
    
 {% endblock %}
 ```
 
-### login.html
+### sign_in.html
 ```html
 {% extends "base.html" %} 
-{% block title %}Login{% endblock %} 
+{% block title %}Sign In{% endblock %} 
 
 {% block content%}
    
