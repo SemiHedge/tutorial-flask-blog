@@ -29,7 +29,7 @@ def create_app():
 
     # Config LoginManager
     login_manager = LoginManager()
-    login_manager.login_view = "auth.sign-in"
+    login_manager.login_view = "auth.sign_in"
     login_manager.init_app(app)
 
     @login_manager.user_loader
