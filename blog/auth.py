@@ -8,7 +8,7 @@ auth = Blueprint("auth", __name__)
 
 # define auth view
 @auth.route("/sign-in", methods=['GET','POST'])
-def signin():
+def sign_in():
     if request.method == 'POST':
         # 추출 - 회원 가입 요청 데이터
         email = request.form.get("email")
@@ -62,11 +62,11 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             flash('회원 가입 성공')
-            return redirect(url_for('auth.signin'))
+            return redirect(url_for('auth.sign_in'))
     
     return render_template("sign_up.html")
 
 
 @auth.route("/logout")
 def logout():
-    return redirect(url_for("views.home"))
+    return redirect(url_for("views.home"))    logout_user()

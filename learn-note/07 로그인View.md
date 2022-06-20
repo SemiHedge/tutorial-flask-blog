@@ -42,7 +42,7 @@ def create_app():
 ## 로그인 로직 구현(분기) - `auth.py`
 ```python
 @auth.route("/sign-in", methods=['GET','POST'])
-def signin():
+def sign_in():
     if request.method == 'POST':
         # 추출 - 회원 가입 요청 데이터
         email = request.form.get("email")
@@ -55,7 +55,7 @@ def signin():
 - 회원가입시 조회코드와 동일합니다.
 ```python
 @auth.route("/sign-in", methods=['GET','POST'])
-def signin():
+def sign_in():
     if request.method == 'POST':
         # 추출 - 회원 가입 요청 데이터
         email = request.form.get("email")
@@ -72,7 +72,7 @@ def signin():
 
 ```python
 @auth.route("/sign-in", methods=['GET','POST'])
-def signin():
+def sign_in():
     if request.method == 'POST':
         # 추출 - 회원 가입 요청 데이터
         email = request.form.get("email")
