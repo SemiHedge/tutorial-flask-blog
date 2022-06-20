@@ -68,5 +68,7 @@ def sign_up():
 
 
 @auth.route("/logout")
+@login_required
 def logout():
-    return redirect(url_for("views.home"))    logout_user()
+    logout_user()
+    return redirect(url_for("auth.sign_in"))
