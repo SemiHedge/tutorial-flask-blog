@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
     date_created = db.Column(db.DateTime, default=datetime.now())
     date_updated = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
     email = db.Column(db.String(150), unique=True)
-    username = db.Column(db.String(150), unique=True)
+    nickname = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     posts = db.relationship('Post', backref='user', passive_deletes=True)
     comments = db.relationship('Comment', backref='user', passive_deletes=True)
