@@ -1,3 +1,9 @@
+# 목차
+- 로그인 여부에 따른 Jinja 표현식 - `base.html`
+- 직접 해보기
+
+## 로그인 여부에 따른 Jinja 표현식 - `base.html`
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,7 @@
     
     <!-- 공통 노출 -->
     <a href="/home">Home</a>
-    {% if current_user.is_authenticated %}
+    {% if user.is_authenticated %}
         <!-- 로그인 시 노출 -->
         <a href="/logout">Logout</a>
     {% else %}
@@ -39,3 +45,6 @@
     {% endblock %}
 </body>
 </html>
+```
+
+## 직접 해보기
