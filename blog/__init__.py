@@ -25,6 +25,15 @@ def create_app():
     from .models import User, Post, Comment, Like
     create_database(app)
 
+    # Config LoginManager
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.sign-in"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(id)
+
     return app
 
 

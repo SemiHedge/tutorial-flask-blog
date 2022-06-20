@@ -7,8 +7,27 @@ from werkzeug.security import generate_password_hash, check_password_hash
 auth = Blueprint("auth", __name__)
 
 # define auth view
-@auth.route("/sign-in")
+@auth.route("/sign-in", methods=['GET','POST'])
 def signin():
+    if request.method == 'POST':
+        # 추출 - 회원 가입 요청 데이터
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # 조회 - 데이터베이스 User정보
+        db_user = User.query.filter_by(email=email).first()
+
+        # 유효성 검사
+        if not db_user:
+            flash('이메일을 확인해주세요.', category='error')
+        else:
+            if not check_password_hash(db_user.password, password):
+                flash('비밀번호를 확인해주세요.', category='error')
+            else:
+                flash(f"{db_user.nickname}님 반갑습니다", category='success')
+                login_user(db_user, remember=True)
+                return redirect(url_for('views.home'))
+            
     return render_template("sign_in.html")
 
 
@@ -21,7 +40,7 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
 
-        # 조회 - 데이터 베이스 User정보
+        # 조회 - 데이터베이스 User정보
         email_exist = User.query.filter_by(email=email).first()
         nickname_exist = User.query.filter_by(nickname=nickname).first()
 

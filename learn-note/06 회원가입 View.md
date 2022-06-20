@@ -53,7 +53,7 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
 
-        # 조회 - 데이터 베이스 User정보
+        # 조회 - 데이터베이스 User정보
         email_exist = User.query.filter_by(email=email).first()
         nickname_exist = User.query.filter_by(nickname=nickname).first()
     else:
@@ -72,7 +72,7 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
 
-        # 조회 - 데이터 베이스 User정보
+        # 조회 - 데이터베이스 User정보
         email_exist = User.query.filter_by(email=email).first()
         nickname_exist = User.query.filter_by(nickname=nickname).first()
 
@@ -120,7 +120,7 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
 
-        # 조회 - 데이터 베이스 User정보
+        # 조회 - 데이터베이스 User정보
         email_exist = User.query.filter_by(email=email).first()
         nickname_exist = User.query.filter_by(nickname=nickname).first()
 
