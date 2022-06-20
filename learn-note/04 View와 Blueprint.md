@@ -2,6 +2,7 @@
 - `views.py`에 Blueprint 생성
 - `auth.py`에 Blueprint 생성
 - `__init__.py`에 Blueprint를 적용
+- 기초 View 생성
 
 ## `views.py`에 Blueprint 생성
 ```python
@@ -63,3 +64,21 @@ def create_database(app):
         db.create_all(app = app)
         print(">>> Created DB ")
 ```
+
+## 기초 View생성 - `views.py`
+```python
+from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
+from flask_login import login_required, current_user
+from .models import Post, User, Comment, Like
+from . import db
+
+views = Blueprint("views", __name__)
+
+# Define View
+@views.route('/')
+@views.route('/home')
+def home():
+    return render_template('home.html')
+```
+
+## 기초 View생성 - `auth.py`

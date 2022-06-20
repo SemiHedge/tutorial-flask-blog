@@ -4,3 +4,9 @@ from .models import Post, User, Comment, Like
 from . import db
 
 views = Blueprint("views", __name__)
+
+# Define View
+@views.route('/')
+@views.route('/home')
+def home():
+    return render_template('home.html')
